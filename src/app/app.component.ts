@@ -9,9 +9,14 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  movie = {
+  movies = [{
     title: 'Spider-Man',
     releaseDate: new Date(),
     price: 1400.99
-  }
+  },
+  {
+    title: 'Moana',
+    releaseDate: new Date("2016-05-03"),
+    price: 300
+  }]
 }
