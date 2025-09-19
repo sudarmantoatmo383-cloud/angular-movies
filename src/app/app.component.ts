@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { MoviesListComponent } from './movies/movies-list/movies-list.component';
 import { MenuComponent } from "./shared/components/menu/menu.component";
-import { RatingComponent } from "./shared/components/rating/rating.component";
 
 @Component({
   selector: 'app-root',
-  imports: [MoviesListComponent, MenuComponent, RatingComponent],
+  imports: [MoviesListComponent, MenuComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -53,7 +52,7 @@ export class AppComponent {
         price: 300.99,
         poster: 'https://upload.wikimedia.org/wikipedia/en/thumb/e/ed/The_Flash_%28film%29_poster.jpg/220px-The_Flash_%28film%29_poster.jpg'
       }];
-    }, 2000)
+    }, 100)
   }
 
   processRating(rate: number){
