@@ -1,4 +1,6 @@
-<button (click)="addMovies()">Add a movie</button>
+<button mat-flat-button (click)="addMovies()">
+    <mat-icon>add</mat-icon>Add a movie
+</button>
 
 <app-generic-list [elements]="movies">
     <ng-container content>
