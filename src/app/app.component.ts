@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { MoviesListComponent } from './movies/movies-list/movies-list.component';
 import { MenuComponent } from "./shared/components/menu/menu.component";
-import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-root',
-  imports: [MoviesListComponent, MenuComponent, MatButtonModule],
+  imports: [MoviesListComponent, MenuComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
