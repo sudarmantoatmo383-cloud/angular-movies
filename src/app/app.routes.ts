@@ -7,6 +7,7 @@ import { CreateActorComponent } from './actors/create-actor/create-actor.compone
 import { CreateTheaterComponent } from './theaters/create-theater/create-theater.component';
 import { IndexTheatersComponent } from './theaters/index-theaters/index-theaters.component';
 import { CreateMovieComponent } from './movies/create-movie/create-movie.component';
+import { EditMovieComponent } from './movies/edit-movie/edit-movie.component';
 
 export const routes: Routes = [
     {path: '', component: LandingPageComponent},
@@ -19,5 +20,6 @@ export const routes: Routes = [
     {path: 'theaters', component: IndexTheatersComponent},
     {path: 'theaters/create', component: CreateTheaterComponent},
 
-    {path: 'movies/create', component: CreateMovieComponent}
+    {path: 'movies/create', component: CreateMovieComponent},
+    {path: 'movies/edit/:id', component: EditMovieComponent}
 ];
