@@ -27,5 +27,7 @@ export const routes: Routes = [
     {path: 'theaters/edit/:id', component: EditTheaterComponent},
 
     {path: 'movies/create', component: CreateMovieComponent},
-    {path: 'movies/edit/:id', component: EditMovieComponent}
+    {path: 'movies/edit/:id', component: EditMovieComponent},
+
+    {path: '**', redirectTo: ''}
 ];
