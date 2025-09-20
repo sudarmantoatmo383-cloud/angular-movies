@@ -1,11 +1,11 @@
-import { Component, EventEmitter, inject, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { firstLetterShouldBeUppercase } from '../../shared/functions/validations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { GenreCreationDTO } from '../genres.models';
+import { GenreCreationDTO, GenreDTO } from '../genres.models';
 
 @Component({
   selector: 'app-genres-form',
@@ -13,7 +13,7 @@ import { GenreCreationDTO } from '../genres.models';
   templateUrl: './genres-form.component.html',
   styleUrl: './genres-form.component.css'
 })
-export class GenresFormComponent {
+export class GenresFormComponent implements OnInit {
 
   private formBuilder = inject(FormBuilder);
 
@@ -21,9 +21,18 @@ export class GenresFormComponent {
     name: ['', {validators: [Validators.required, firstLetterShouldBeUppercase()]}]
   })
   
+  @Input()
+  model?: GenreDTO;
+
   @Output()
   postForm = new EventEmitter<GenreCreationDTO>();
   
+  ngOnInit(): void {
+    if (this.model !== undefined){
+      this.form.patchValue(this.model);
+    }
+  }
+
   getErrorMessagesForName(): string{
     let field = this.form.controls.name;
     if (field.hasError('required')){
