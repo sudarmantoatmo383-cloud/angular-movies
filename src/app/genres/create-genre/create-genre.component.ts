@@ -5,38 +5,22 @@ import { Router, RouterLink } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { firstLetterShouldBeUppercase } from '../../shared/functions/validations';
+import { GenreCreationDTO } from '../genres.models';
+import { GenresFormComponent } from "../genres-form/genres-form.component";
 
 @Component({
   selector: 'app-create-genre',
-  imports: [MatButtonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, RouterLink],
+  imports: [GenresFormComponent],
   templateUrl: './create-genre.component.html',
   styleUrl: './create-genre.component.css'
 })
 export class CreateGenreComponent {
 
   router = inject(Router);
-  private formBuilder = inject(FormBuilder);
 
-  form = this.formBuilder.group({
-    name: ['', {validators: [Validators.required, firstLetterShouldBeUppercase()]}]
-  })
-
-  getErrorMessagesForName(): string{
-    let field = this.form.controls.name;
-    if (field.hasError('required')){
-      return "The name field is requied";
-    }
-
-    if (field.hasError('firstLetterShouldBeUppercase')){
-      return field.getError('firstLetterShouldBeUppercase').message
-    }
-
-    return "";
-  }
-
-  saveChange(){
+  saveChange(genre: GenreCreationDTO){
     // .. save changes
-    console.log(this.form.value)
+    console.log(genre);
     this.router.navigate(['/genres']);
   }
 }
