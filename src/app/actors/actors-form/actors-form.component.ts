@@ -8,10 +8,11 @@ import { RouterLink } from '@angular/router';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import moment from 'moment';
 import { dateCannotBeInTheFuture } from '../../shared/functions/validations';
+import { InputImgComponent } from '../../shared/components/input-img/input-img.component';
 
 @Component({
   selector: 'app-actors-form',
-  imports: [ReactiveFormsModule, MatButtonModule, RouterLink, MatFormFieldModule, MatInputModule, MatDatepickerModule],
+  imports: [ReactiveFormsModule, MatButtonModule, RouterLink, MatFormFieldModule, MatInputModule, MatDatepickerModule, InputImgComponent],
   templateUrl: './actors-form.component.html',
   styleUrl: './actors-form.component.css'
 })
