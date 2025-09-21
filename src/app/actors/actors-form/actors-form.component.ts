@@ -22,7 +22,8 @@ export class ActorsFormComponent implements OnInit {
 
   form = this.formBuilder.group({
     name: ['', {validators: [Validators.required]}],
-    dateOfBirth: new FormControl<Date | null>(null, {validators: [Validators.required, dateCannotBeInTheFuture()]})
+    dateOfBirth: new FormControl<Date | null>(null, {validators: [Validators.required, dateCannotBeInTheFuture()]}),
+    picture: new FormControl<null | File | string>(null)
   })
 
   @Input()
@@ -60,6 +61,10 @@ export class ActorsFormComponent implements OnInit {
 
     return "";
 
+  }
+  
+  handleFileSelection(file: File){
+    this.form.controls.picture.setValue(file);
   }
 
   saveChanges(){
